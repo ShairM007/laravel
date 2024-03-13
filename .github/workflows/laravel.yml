@@ -63,7 +63,7 @@ jobs:
         with:
           host: 34.229.116.194
           username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_SECRET_KEY }}
           port: 22
           script: |
             ls
@@ -80,4 +80,4 @@ jobs:
             sudo systemctl restart nginx
 
     env:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_SECRET_KEY }}
