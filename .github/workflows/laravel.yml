@@ -61,19 +61,19 @@ jobs:
       - name: SSH into EC2 instance and deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 54.82.103.117
+          host: 34.229.116.194
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
             ls
-            cd laravel-ci-cd-demo
+            cd demo-ci-cd
             ls
-            git pull origin "master"
+            git pull origin "main"
             echo "done"
             cd ../
-            sudo cp -r /home/ubuntu/laravel-ci-cd-demo /var/www/html
-            cd /var/www/html/laravel-ci-cd-demo
+            sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
+            cd /var/www/html/demo-ci-cd
             composer install --no-dev
             php artisan key:generate
             sudo nginx -t
