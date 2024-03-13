@@ -70,7 +70,7 @@ jobs:
             cd demo-ci-cd
             ls
             git pull origin "main"
-            echo "done"
+            echo "donee"
             
 
     env:
