@@ -74,6 +74,7 @@ jobs:
             cd ../
             sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
             cd /var/www/html/demo-ci-cd
+            cd laravel
             composer install --no-dev
             php artisan key:generate
             sudo nginx -t
