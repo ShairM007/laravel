@@ -66,7 +66,7 @@ jobs:
           key: ${{ secrets.SSH_SECTRET_KEY }}
           port: 22
           script: |
-          ls
+            ls
             
 
    
