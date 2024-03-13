@@ -68,16 +68,7 @@ jobs:
           script: |
             ls
             cd demo-ci-cd
-            ls
-            git pull origin "main"
-            echo "done"
-            cd ../
-            sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
-            cd /var/www/html/demo-ci-cd
-            composer install --no-dev
-            php artisan key:generate
-            sudo nginx -t
-            sudo systemctl restart nginx
+            
 
     env:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_SECTRET_KEY }}
