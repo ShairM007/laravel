@@ -48,10 +48,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # - name: Setup PHP
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: '8.2'
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
       - name: print Helloo
         run: echo "Hello world"
 
@@ -61,15 +61,23 @@ jobs:
       - name: SSH into EC2 instance and deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 34.229.116.194
+          host: 54.89.160.246
           username: ubuntu
           key: ${{ secrets.SSH_SECTRET_KEY }}
           port: 22
           script: |
             ls
+            cd demo-ci-cd
+            ls
+            git pull origin "main"
+            echo "done"
+            cd ../
+            sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
+            cd /var/www/html/demo-ci-cd
+            composer install --no-dev
+            php artisan key:generate
+            sudo nginx -t
+            sudo systemctl restart nginx
 
     env:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}      
-
-   
-   
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_SECTRET_KEY }}
