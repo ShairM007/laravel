@@ -68,7 +68,7 @@ jobs:
           script: |
             ls
 
-      env:
+    env:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}      
 
    
