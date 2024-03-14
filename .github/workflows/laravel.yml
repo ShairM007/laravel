@@ -71,10 +71,11 @@ jobs:
             ls
             git pull origin "main"
             echo "doneee"
-            cd ../
-            sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
-            cd /var/www/html/demo-ci-cd
-            cd laravel
+            # cd ../
+            # sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
+            cd /var/www/html/laravel
+            # cd laravel
+            git pull origin "main"
             composer install --no-dev
             php artisan key:generate
             sudo nginx -t
