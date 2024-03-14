@@ -67,9 +67,9 @@ jobs:
           port: 22
           script: |
             ls
-            cd demo-ci-cd
-            ls
-            git pull origin "main"
+            # cd demo-ci-cd
+            # ls
+            # git pull origin "main"
             echo "doneee"
             # cd ../
             # sudo cp -r /home/ubuntu/demo-ci-cd /var/www/html
