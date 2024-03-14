@@ -61,7 +61,7 @@ jobs:
       - name: SSH into EC2 instance and deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 54.159.27.111
+          host: 54.91.134.209
           username: ubuntu
           key: ${{ secrets.SSH_SECTRET_KEY }}
           port: 22
